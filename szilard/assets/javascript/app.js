@@ -1,15 +1,14 @@
 $(document).ready(function()
 {   
-    var searchWord = [];
+    var urbanTerm = [];
 
-    $("#submitButton").click(function(){
-        var myExpression = $("#userInput").val();
-        searchWord.push(myExpression);
-        console.log(searchWord);
-        $("#userInput").val("");
-        //comment
+    $("#submit").click(function(){
+        var myExpression = $("#inputTerm").val();
+        urbanTerm.push(myExpression);
+        console.log(urbanTerm);
+        $("#inputTerm").val("");
 
-        var queryURL = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term="+searchWord+"";
+        var queryURL = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term="+urbanTerm+"";
 
     $.ajax({
         url: queryURL, 
@@ -24,7 +23,7 @@ $(document).ready(function()
 
         for(var i = 0; i < results.length; i++)
         {
-            $("#urbanDiv").html(results[i].definition);
+            $("#urbanPlace").html(results[i].definition);
         }
     })
 })
