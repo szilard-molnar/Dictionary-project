@@ -26,8 +26,5 @@ $(document).ready(function()
             $("#urbanPlace").html(results[i].definition);
         }
     })
-
-
-    
 })
 })
