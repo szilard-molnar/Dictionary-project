@@ -1,30 +1,33 @@
-$(document).ready(function()
-{   
-    var urbanTerm = [];
-
-    $("#submit").click(function(){
-        var myExpression = $("#inputTerm").val();
-        urbanTerm.push(myExpression);
-        console.log(urbanTerm);
-        $("#inputTerm").val("");
-
-        var queryURL = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term="+urbanTerm+"";
-
-    $.ajax({
-        url: queryURL, 
-        headers: {"X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
-        "X-RapidAPI-Key": "748ddc26b8mshb590d128ea3a157p115cd4jsn1816f6826646"},
-        method: "GET"
+  $(document).ready(function()
+    {   
+        var searchWord = [];
     
-    }).then(function (response)
-    {
-        var results = response.list;
-        console.log(results);
+        $("#submitButton").click(function(){
+            var myExpression = $("#userInput").val();
+            searchWord.push(myExpression);
+            console.log(searchWord);
+            $("#userInput").val("");
+            //comment
+    
+            var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + myExpression + "&safeSearch=strict&key=AIzaSyBtTKhUd5u7vSo3QD8S0k7mIFbFJGd0ooQ&type=video";
+            
+            console.log(myExpression)
+    
+        $.ajax({
+            url: queryURL, 
+            method: "GET"
+        
+        }).then(function (response)
 
-        for(var i = 0; i < results.length; i++)
-        {
-            $("#urbanPlace").html(results[i].definition);
-        }
+        {console.log(response);
+            var results = response.items["0"].id.videoId;
+
+            console.log ("this is the variable results:" + results)
+        
+            
+                $("#youtubeDiv").html('<iframe id="youtubeFrame" width="560" height="315" src="https://www.youtube.com/embed/' + results + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+            })
     })
-})
-})
+    })
+
+    
