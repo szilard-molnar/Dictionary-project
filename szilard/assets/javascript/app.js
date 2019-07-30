@@ -1,14 +1,21 @@
 $(document).ready(function()
 {   
-    var urbanTerm = [];
+    var searchWord = [];
 
-    $("#submit").click(function(){
-        var myExpression = $("#inputTerm").val();
-        urbanTerm.push(myExpression);
-        console.log(urbanTerm);
-        $("#inputTerm").val("");
+    $("#submitButton").click(function(urbanDictionaryFunction){
+        if($("#userInput").val() == "")
+        {
+            alert("Please type in a word or an expression.");
+            return;
+        }
+        var myExpression = $("#userInput").val();
+        searchWord.push(myExpression);
+        console.log(searchWord);
+        $("#userInput").val("");
+        
+        var lastWord = searchWord.slice(-1).pop();
 
-        var queryURL = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term="+urbanTerm+"";
+        var queryURL = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term="+lastWord+"";
 
     $.ajax({
         url: queryURL, 
@@ -20,10 +27,12 @@ $(document).ready(function()
     {
         var results = response.list;
         console.log(results);
+        $("#urbanDiv").html("");
 
-        for(var i = 0; i < results.length; i++)
+        for(var i = 0; i < 3; i++)
         {
-            $("#urbanPlace").html(results[i].definition);
+            $("#urbanDefinition").html(myExpression);
+            $("#urbanDiv").append("<li>"+results[i].definition+"</li>");
         }
     })
 })

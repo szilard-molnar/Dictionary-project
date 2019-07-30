@@ -27,5 +27,8 @@ $(document).ready(function()
             $("#urbanDiv").html(results[i].definition);
         }
     })
+
+
+    
 })
 })
