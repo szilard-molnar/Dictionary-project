@@ -1,6 +1,7 @@
 $(document).ready(function()
 {   
     var urbanTerm = [];
+
     function websterCall(myExpression)
         {
             //elementary dictionary
