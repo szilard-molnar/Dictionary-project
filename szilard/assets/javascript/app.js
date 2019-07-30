@@ -27,6 +27,7 @@ $(document).ready(function()
     {
         var results = response.list;
         console.log(results);
+        $("#urbanDiv").html("");
 
         for(var i = 0; i < 3; i++)
         {
