@@ -4,22 +4,81 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-        <script src="./assets/javascript/app.js"></script>
-        <script src="https://apis.google.com/js/api.js"></script>
+       
+ 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
 
-    </head>
-    <body>
-        <p>
-            Easy Urban Dictionary app :) type in the expression you are confused about!!
-        </p>
-        <input id="userInput" placeholder="your expression">
-        <button id="submitButton">Show me!!!</button>
-        <div id="urbanDiv"></div>
-
-        <div id="youtubeDiv">  </div>
+    <title>You don't know Jack!</title>
+  </head>
+  <body>
+    </br>
 
 
-    </body>
+<div class="jumbotron mx-auto col-4">
+  <h1 class="display-4 " >Search here!</h1>
+  <form>
+  <div class="form-group">
+     <input type="text" class="form-control" id="userInput" placeholder="What will it be?"></input>
+    <small id="caution" class="form-text text-muted">Search at your own risk.</small>
+  </div>
+  <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+</form>
+  
+</div>
+
+<div class="row">
+<div class="card mx-auto populate ">
+  <div class="card-body mx-auto">
+    <h2>Webster's Dictionary</h2>
+    
+       <p class="card-text" id="websterDiv"></p>
+     </div>
+</div>
+
+<div class="card mx-auto populate">
+  <span class="mx-auto">
+  <div class="card-body">
+    
+       <p class="card-text" id="gifDiv" >This is where gifs will populate.</p>
+     </div>
+</span>
+     
+
+<div class="row">
+<span class="mx-auto">
+  <div class="card-body">
+    
+       <p class="card-text" id="youtubeDiv">This is where videos will populate.</p>
+     </div>
+</span>
+</div>
+</div>
+
+
+<div class="card mx-auto populate">
+  <div class="card-body mx-auto">
+      <h2>Urban Dictionary</h2>
+
+    <p class="card-text" id="urbanDefinition"></p>
+       <p class="card-text" id="urbanDiv"></p>
+     </div>
+</div>
+</div>
+
+</br>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="assets/javascript/app.js"></script>
+
+  </body>
 </html>
