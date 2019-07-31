@@ -10,10 +10,67 @@
     </head>
     <body>
         <p>
-            Easy Urban Dictionary app :) type in the expression you are confused about!!
+            This multi-functioning dictionary describes the meanings of words both with text and video!
         </p>
         <input id="userInput" placeholder="your expression">
         <button id="submitButton">Show me!!!</button>
+
+        
+​
+<div class="jumbotron mx-auto col-4" id="userinputDiv">
+  <h1 class="display-4 " >Search here!</h1>
+  <form>
+  <div class="form-group">
+     <input type="text" class="form-control" id="userInput" placeholder="What will it be?">
+    <small id="caution" class="form-text text-muted">Search at your own risk.</small>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+</form>
+  
+</div>
+​
+<div class="row">
+<div class="card mx-auto populate ">
+  <div class="card-body mx-auto">
+    
+       <p class="card-text" id="websterDiv">This is where definitions will populate.</p>
+     </div>
+</div>
+​
+<div class="card mx-auto populate">
+  <span class="mx-auto">
+  <div class="card-body">
+    
+       <p class="card-text" id="gifDiv">This is where gifs will populate.</p>
+     </div>
+</span>
+     
+​
+<div class="row">
+<span class="mx-auto">
+  <div class="card-body">
+    
+       <p class="card-text" id="youtubeDiv">This is where videos will populate.</p>
+     </div>
+</span>
+</div>
+</div>
+​
+​
+<div class="card mx-auto populate">
+  <div class="card-body mx-auto">
+  
+       <p class="card-text" id="urbanDiv">This is where definitions will populate.</p>
+     </div>
+</div>
+</div>
+​
+</br>
+
+        <div id="websterDiv"></div>
         <div id="urbanDiv"></div>
+        <div id="gifDiv"></div>
+        <div id="youtubeDiv"></div>
     </body>
 </html>
