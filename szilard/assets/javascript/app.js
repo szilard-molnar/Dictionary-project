@@ -1,6 +1,7 @@
 $(document).ready(function()
 {   
-    var searchWord = ["computer", "copy", "cougar", "butterfly"];
+    var searchWord = ["computer", "copy", "dog", "butterfly"];
+
     function websterCall(myExpression)
     {
         //elementary dictionary
@@ -54,7 +55,7 @@ $(document).ready(function()
             console.log("this is the variable results:" + results)
 
 
-            $("#youtubeDiv").html('<iframe id="youtubeFrame" width="560" height="315" src="https://www.youtube.com/embed/' + results + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+            $("#youtubeDiv").html('<iframe id="youtubeFrame" style="background-size: cover" src="https://www.youtube.com/embed/' + results + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
         })
     }
     function callUrban(myExpression){
@@ -90,9 +91,9 @@ $(document).ready(function()
            var results = response.data.image_original_url;
            if(results){
                console.log(response);
-            var gif = "<img src='"+results+"'>";
+            var gif = results;
           // var dictionaryGif = $("<img>");
-            $("#gifDiv").html(gif);
+            $("#gifDiv").html('<img style="background-size: contain" src=" '+ gif+ ' ">');
            }
            else{
                $("#gifDiv").html("No gif result.");
@@ -108,12 +109,17 @@ $(document).ready(function()
     callUrban(randomWord);
     callGiphy(randomWord);
 
-    $("#submitButton").click(function(){
+    $("#submitButton").click(function( event ){
+
+        event.preventDefault();
+
         var myExpression = $("#userInput").val();
-        searchWord.push(myExpression);
+        console.log(myExpression);
         console.log(searchWord);
+        searchWord.push(myExpression);
+        
         $("#userInput").val("");
-        //comment
+        
         websterCall(myExpression);
         callYoutube(myExpression);
         callUrban(myExpression);

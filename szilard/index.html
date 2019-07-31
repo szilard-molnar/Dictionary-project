@@ -6,17 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-        <script src="./assets/javascript/app.js"></script>
+        
     </head>
     <body>
-        <p>
-            This multi-functioning dictionary describes the meanings of words both with text and video!
-        </p>
-        <input id="userInput" placeholder="your expression">
-        <button id="submitButton">Show me!!!</button>
 
-        
-​
+<div class="container">
+
 <div class="jumbotron mx-auto col-4" id="userinputDiv">
   <h1 class="display-4 " >Search here!</h1>
   <form>
@@ -25,7 +20,8 @@
     <small id="caution" class="form-text text-muted">Search at your own risk.</small>
   </div>
   
-  <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+  <button class="btn btn-primary" id="submitButton">Submit</button>
+  <small id="lastSearch" class="form-text text-muted">Last Search: </small>
 </form>
   
 </div>
@@ -33,6 +29,7 @@
 <div class="row">
 <div class="card mx-auto populate ">
   <div class="card-body mx-auto">
+      <h2>Webster's Dictionary</h2>
     
        <p class="card-text" id="websterDiv">This is where definitions will populate.</p>
      </div>
@@ -60,10 +57,13 @@
 ​
 <div class="card mx-auto populate">
   <div class="card-body mx-auto">
+        <h2>Urban Dictionary</h2>
   
        <p class="card-text" id="urbanDiv">This is where definitions will populate.</p>
      </div>
 </div>
+</div>
+
 </div>
 ​
 </br>
@@ -72,5 +72,8 @@
         <div id="urbanDiv"></div>
         <div id="gifDiv"></div>
         <div id="youtubeDiv"></div>
+
+        <script src="./assets/javascript/app.js"></script>
+
     </body>
 </html>
