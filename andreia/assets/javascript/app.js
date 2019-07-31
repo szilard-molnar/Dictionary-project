@@ -4,8 +4,8 @@ console.log("testing outside of all functions")
 $(document).ready(function()
 {   
 
-    var searchWord = ["testing"];
-
+    var searchWord = ["computer", "copy", "dog", "butterfly"];
+    
     function websterCall(myExpression)
     {
         //elementary dictionary
