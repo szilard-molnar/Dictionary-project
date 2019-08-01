@@ -1,4 +1,42 @@
-.populate {
+body {
+    background-color: pink;
+    padding: 25px;
+}
+
+.populate{
     margin: 5px;
-    width: 32%; 
+width : 32%;
+
+
+}
+.card{
+ background-color: rgba(255, 255, 255, 0.5);
+}
+#searchTitle{
+    justify-content: center;
+    text-align: center;
+    font-family: 'Finger Paint', cursive;
+    font-size: 4rem;
+}
+.btn{
+    margin: 2px;
+    background-color: #EF442E;
+    border: none;
+}
+.gifSizing{
+    width: 95%;
+    height: 95%;
+}
+
+#gifDiv{
+    opacity: 1!important;
+
+}
+
+body{
+    background-image: url("https://wallpaperplay.com/walls/full/7/d/5/213284.jpg")
+}
+
+#urbanDefinition, #websterDefinition{
+    font-size: 1.7rem;
 }
