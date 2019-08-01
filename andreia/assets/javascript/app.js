@@ -5,7 +5,7 @@ $(document).ready(function()
 {   
 
     var searchWord = ["computer", "copy", "dog", "butterfly"];
-    
+
     function websterCall(myExpression)
     {
         //elementary dictionary
@@ -28,7 +28,7 @@ $(document).ready(function()
             var pos = 1;
             if (results)
                 {
-                    $("#websterDiv").append("<p>" + myExpression + "</p>");
+                    $("#websterDiv").append("<p id='websterDefinition'>" + myExpression + "</p>");
                     for (var i = 0; i < results.length; i++)
                         {
                             if(i <=2)
@@ -98,7 +98,7 @@ $(document).ready(function()
                console.log(response);
             var gif = results;
           // var dictionaryGif = $("<img>");
-            $("#gifDiv").html('<img style="background-size: contain" src=" '+ gif+ ' ">');
+            $("#gifDiv").html('<img class="gifSizing" src=" '+ gif+ ' ">');
            }
            else{
                $("#gifDiv").html("No gif result.");
