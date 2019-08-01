@@ -19,6 +19,8 @@ width : 32%;
 }
 .btn{
     margin: 2px;
+    background-color: #EF442E;
+    border: none;
 }
 .gifSizing{
     width: 95%;
