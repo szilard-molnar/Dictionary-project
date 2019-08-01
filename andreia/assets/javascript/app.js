@@ -78,11 +78,15 @@ $(document).ready(function()
             var results = response.list;
             console.log(results);
             $("#urbanDiv").html("");
-    
+            var pos=1;
             for(var i = 0; i < 3; i++)
             {
                 $("#urbanDefinition").html(myExpression);
-                $("#urbanDiv").append("<li>"+results[i].definition+"</li>");
+                
+                
+                $("#urbanDefinition").html(myExpression);
+                $("#urbanDiv").append("<p>" + pos + ": " + results[i].definition + "</p>");
+                pos++
             }
         })
     }
