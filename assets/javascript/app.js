@@ -1,5 +1,9 @@
+console.log("testing outside of all functions")
+
+
 $(document).ready(function()
 {   
+
     var searchWord = ["computer", "copy", "dog", "butterfly"];
 
     function websterCall(myExpression)
@@ -9,7 +13,8 @@ $(document).ready(function()
 
         //collegiate dictionary
         var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + myExpression + "?key=8a432f3f-03bf-4acd-9217-bd6489771a25";
-
+        
+        
     
         $.ajax({
             url: queryURL, 
@@ -19,11 +24,11 @@ $(document).ready(function()
         {
             results = response[0].shortdef
             console.log(response);
-            $("#websterDiv").html("");
+            $("#websterDiv").empty();
             var pos = 1;
             if (results)
                 {
-                    $("#websterDiv").append("<p>" + myExpression + "</p>");
+                    $("#websterDiv").append("<p id='websterDefinition'>" + myExpression + "</p>");
                     for (var i = 0; i < results.length; i++)
                         {
                             if(i <=2)
@@ -73,11 +78,15 @@ $(document).ready(function()
             var results = response.list;
             console.log(results);
             $("#urbanDiv").html("");
-    
+            var pos=1;
             for(var i = 0; i < 3; i++)
             {
                 $("#urbanDefinition").html(myExpression);
-                $("#urbanDiv").append("<li>"+results[i].definition+"</li>");
+                
+                
+                $("#urbanDefinition").html(myExpression);
+                $("#urbanDiv").append("<p>" + pos + ": " + results[i].definition + "</p>");
+                pos++
             }
         })
     }
@@ -93,7 +102,7 @@ $(document).ready(function()
                console.log(response);
             var gif = results;
           // var dictionaryGif = $("<img>");
-            $("#gifDiv").html('<img style="background-size: contain" src=" '+ gif+ ' ">');
+            $("#gifDiv").html('<img class="gifSizing" src=" '+ gif+ ' ">');
            }
            else{
                $("#gifDiv").html("No gif result.");
@@ -101,25 +110,26 @@ $(document).ready(function()
             })
     }
 
+    
     var randomWord = searchWord[Math.floor(Math.random() * searchWord.length)];
     console.log(randomWord);
-
     websterCall(randomWord);
     callYoutube(randomWord);
     callUrban(randomWord);
     callGiphy(randomWord);
 
-    $("#submitButton").click(function( event ){
+    $("#submitButton").click(function(event){
 
         event.preventDefault();
-
         var myExpression = $("#userInput").val();
-        console.log(myExpression);
-        console.log(searchWord);
+
+        console.log(myExpression)
+
+
         searchWord.push(myExpression);
-        
+        console.log(searchWord);
         $("#userInput").val("");
-        
+        //comment
         websterCall(myExpression);
         callYoutube(myExpression);
         callUrban(myExpression);
