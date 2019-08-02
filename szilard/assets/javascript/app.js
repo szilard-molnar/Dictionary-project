@@ -1,8 +1,5 @@
-console.log("testing outside of all functions")
-
-
 $(document).ready(function()
-{   
+{  
 
     var searchWord = ["computer", "copy", "dog", "butterfly"];
 
@@ -131,6 +128,11 @@ $(document).ready(function()
 
         event.preventDefault();
         var myExpression = $("#userInput").val();
+        database.ref("/userInputTerm").set($("#userInput").val());
+
+        database.ref("/userInputTerm").on("value", function(snapshot){
+            $("#previousSearch").html("<p>Previous Search: </p>" + snapshot.val());
+        })
 
         console.log(myExpression);
 
