@@ -5,12 +5,16 @@ body {
 
 .populate{
     margin: 5px;
-width : 32%;
 
 
 }
 .card{
  background-color: rgba(255, 255, 255, 0.5);
+ 
+}
+
+.mx-auto{
+    margin: 5px;
 }
 #searchTitle{
     justify-content: center;
@@ -45,3 +49,4 @@ body{
     font-size: 15px;
     font-weight: bold;
 }
+

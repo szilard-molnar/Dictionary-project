@@ -40,3 +40,8 @@ body{
 #urbanDefinition, #websterDefinition{
     font-size: 1.7rem;
 }
+
+#previousSearch {
+    font-size: 15px;
+    font-weight: bold;
+}
