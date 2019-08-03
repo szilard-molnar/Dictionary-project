@@ -120,8 +120,7 @@ $(document).ready(function()
 {  
     var previousWord;
     
-    var searchWord = ["computer", "copy", "dog", "butterfly"];
-
+    var searchWord = ["computer", "copy", "dog", "butterfly", "car", "shirt", "glasses", "victorian", "machete", "monkey", "bottle", "movie"];
     var randomWord = searchWord[Math.floor(Math.random() * searchWord.length)];
     //console.log(randomWord);
     websterCall(randomWord);
@@ -191,5 +190,7 @@ $(document).ready(function()
             searchWord.push(snapshot.val());
         }
     })
+
+
 
 })
