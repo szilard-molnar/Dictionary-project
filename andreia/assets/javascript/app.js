@@ -1,9 +1,9 @@
-console.log("testing outside of all functions")
-
-
 $(document).ready(function()
-{   
-
+{  
+    database.ref().on("child_added", function (snapshot) {
+        console.log(snapshot.val());
+        $("#previousSearch").html("<p>Previous Search: " + snapshot.val() + "</p>");
+    })
     var searchWord = ["computer", "copy", "dog", "butterfly"];
 
     function websterCall(myExpression)
@@ -110,7 +110,6 @@ $(document).ready(function()
             })
     }
 
-    
     var randomWord = searchWord[Math.floor(Math.random() * searchWord.length)];
     console.log(randomWord);
     websterCall(randomWord);
@@ -118,21 +117,57 @@ $(document).ready(function()
     callUrban(randomWord);
     callGiphy(randomWord);
 
+    $("#randomButton").click(function(event) {
+        event.preventDefault();
+        randomWord = searchWord[Math.floor(Math.random() * searchWord.length)];
+        console.log(randomWord);
+        websterCall(randomWord);
+        callYoutube(randomWord);
+        callUrban(randomWord);
+        callGiphy(randomWord);
+    })
+
     $("#submitButton").click(function(event){
 
         event.preventDefault();
         var myExpression = $("#userInput").val();
+        database.ref("/userInputTerm").set($("#userInput").val());
 
-        console.log(myExpression)
+        database.ref("/userInputTerm").on("value", function(snapshot){
+        $("#previousSearch").html("<p>Previous Search: " + snapshot.val() + "</p>");
 
+        })
 
+        console.log(myExpression);
+
+        if(myExpression == "")
+        {
+            $("#myModal").css("display", "block");
+        }
+        else
+        {
         searchWord.push(myExpression);
         console.log(searchWord);
         $("#userInput").val("");
-        //comment
         websterCall(myExpression);
         callYoutube(myExpression);
         callUrban(myExpression);
         callGiphy(myExpression);
+        }
+
 })
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+  
+  // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  }
 })
