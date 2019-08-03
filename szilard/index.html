@@ -4,76 +4,116 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-        
-    </head>
-    <body>
+       
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/modal.css">
+        <link href="https://fonts.googleapis.com/css?family=Finger+Paint&display=swap" rel="stylesheet">
 
-<div class="container">
 
-<div class="jumbotron mx-auto col-4" id="userinputDiv">
-  <h1 class="display-4 " >Search here!</h1>
+    <title>You don't know Jack!</title>
+  </head>
+<body> 
+
+</br>
+
+    <h1 id="searchTitle" class="fluid">Ultimate Dictionary</h1>
+
+<div class="block mx-auto col-4" style="background-color:transparent">
   <form>
   <div class="form-group">
-     <input type="text" class="form-control" id="userInput" placeholder="What will it be?">
-    <small id="caution" class="form-text text-muted">Search at your own risk.</small>
+     <input type="text" class="form-control" id="userInput" placeholder="Search at your own risk!"></input>
+    <small id="previousSearch" class="form-text text-muted">Previous Search:</small>
   </div>
-  
-  <button class="btn btn-primary" id="submitButton">Submit</button>
-  <small id="lastSearch" class="form-text text-muted">Last Search: </small>
 </form>
+
+  <div class="row justify-content-center" >
+  <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+  <button type="submit" class="btn btn-primary" id="randomButton">Randomize</button>
+</div>
   
 </div>
-​
+
 <div class="row">
 <div class="card mx-auto populate ">
   <div class="card-body mx-auto">
-      <h2>Webster's Dictionary</h2>
+    <h2>Webster's Dictionary</h2>
     
-       <p class="card-text" id="websterDiv">This is where definitions will populate.</p>
+       <p class="card-text" id="websterDiv"></p>
      </div>
 </div>
-​
+
 <div class="card mx-auto populate">
-  <span class="mx-auto">
-  <div class="card-body">
+  <div class="mx-auto">
+  <div class="card-body" style="background-size: contain">
     
-       <p class="card-text" id="gifDiv">This is where gifs will populate.</p>
+       <p class="card-text" id="gifDiv" style="background-size: contain;" >This is where gifs will populate.</p>
      </div>
-</span>
-     
-​
-<div class="row">
-<span class="mx-auto">
-  <div class="card-body">
-    
-       <p class="card-text" id="youtubeDiv">This is where videos will populate.</p>
-     </div>
-</span>
-</div>
-</div>
-​
-​
+    </div>
+  </div>
+
+
+
 <div class="card mx-auto populate">
   <div class="card-body mx-auto">
-        <h2>Urban Dictionary</h2>
-  
-       <p class="card-text" id="urbanDiv">This is where definitions will populate.</p>
+      <h2>Urban Dictionary</h2>
+
+    <p class="card-text" id="urbanDefinition"></p>
+       <p class="card-text" id="urbanDiv"></p>
      </div>
 </div>
 </div>
 
-</div>
-​
+<br>
+<div class="row">
+    <div class="card mx-auto col-10" id="youtube">
+      <div class="card-body">
+        
+           <p class="card-text" id="youtubeDiv">This is where videos will populate.</p>
+         </div>
+        </div>
+    </div>
 </br>
 
-        <div id="websterDiv"></div>
-        <div id="urbanDiv"></div>
-        <div id="gifDiv"></div>
-        <div id="youtubeDiv"></div>
+<div id="myModal" class="modal">
 
-        <script src="./assets/javascript/app.js"></script>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Hey dummy you didn't enter anything :)</p>
+  </div>
 
-    </body>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+
+    <!--The core Firebase JS SDK is always required and must be listed first-->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    
+    <!--//TODO: Add SDKs for Firebase products that you want to use
+        //https://firebase.google.com/docs/web/setup#config-web-app-->
+    
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBU23V4pUDNnYwRrwXJFXk2_yjkZdiDRcc",
+        authDomain: "dictionary-project-5998d.firebaseapp.com",
+        databaseURL: "https://dictionary-project-5998d.firebaseio.com",
+        projectId: "dictionary-project-5998d",
+        storageBucket: "",
+        messagingSenderId: "798372517592",
+        appId: "1:798372517592:web:7a8d20cee0756ca5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      var database = firebase.database();
+
+    </script>
+
+    <script src="assets/javascript/app.js"></script>
+
+  </body>
 </html>
