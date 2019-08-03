@@ -143,8 +143,12 @@ $(document).ready(function()
 
         event.preventDefault();
         var myExpression = $("#userInput").val();
-        database.ref("/userInputTerm").set($("#userInput").val());
-        database.ref("/searchHistory").push($("#userInput").val());
+        if(myExpression != "")
+            {
+                database.ref("/userInputTerm").set(myExpression);
+                database.ref("/searchHistory").push(myExpression);                
+            }
+
         //console.log(searchWord);
         if(myExpression == "")
         {
