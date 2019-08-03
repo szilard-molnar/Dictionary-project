@@ -66,7 +66,7 @@ function callYoutube(myExpression) {
         //console.log("this is the variable results:" + results)
 
 
-        $("#youtubeDiv").html('<iframe id="youtubeFrame" style="background-size: cover" src="https://www.youtube.com/embed/' + results + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+        $("#youtubeDiv").html('<iframe id="youtubeFrame" src="https://www.youtube.com/embed/' + results + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
     })
 }
 function callUrban(myExpression){

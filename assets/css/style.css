@@ -1,6 +1,7 @@
 body {
     background-color: pink;
     padding: 25px;
+    height: 100%;
 }
 
 .populate{
@@ -11,6 +12,10 @@ body {
 .card{
  background-color: rgba(255, 255, 255, 0.5);
  
+}
+
+.card-body{
+    height: auto;
 }
 
 .mx-auto{
@@ -26,6 +31,10 @@ body {
     margin: 2px;
     background-color: #EF442E;
     border: none;
+}
+#youtubeFrame{
+    width: 100% !important;
+    height: 500px !important;
 }
 .gifSizing{
     width: 95%;
@@ -48,5 +57,11 @@ body{
 #previousSearch {
     font-size: 15px;
     font-weight: bold;
+}
+
+@media (max-width: 414px){
+    #youtubeFrame{
+        height: auto !important;
+    }
 }
 
