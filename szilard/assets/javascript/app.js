@@ -1,6 +1,9 @@
 $(document).ready(function()
 {  
-
+    database.ref().on("child_added", function (snapshot) {
+        console.log(snapshot.val());
+        $("#previousSearch").html("<p>Previous Search: " + snapshot.val() + "</p>");
+    })
     var searchWord = ["computer", "copy", "dog", "butterfly"];
 
     function websterCall(myExpression)
@@ -131,7 +134,8 @@ $(document).ready(function()
         database.ref("/userInputTerm").set($("#userInput").val());
 
         database.ref("/userInputTerm").on("value", function(snapshot){
-            $("#previousSearch").html("<p>Previous Search: </p>" + snapshot.val());
+        $("#previousSearch").html("<p>Previous Search: " + snapshot.val() + "</p>");
+
         })
 
         console.log(myExpression);
